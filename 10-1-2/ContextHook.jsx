@@ -1,8 +1,8 @@
 import React, {useContext} from "react";
 
-const ThemeContext = React.createContext('light');
+const ThemeContext = React.createContext('light'); //생성할 컨텍스트의 기본 매개변수를 'light'로 설정
 
-function ContextHook() {
+function ContextHook() { // 컨텍스트의 제공자. props 매개변수를 'lavender'로 변경 ToolBar 컴포넌트에 전달
     return (
         <ThemeContext.Provider value='lavender'>
             <Toolbar />
@@ -10,7 +10,7 @@ function ContextHook() {
     )
 }
 
-function Toolbar() {
+function Toolbar() { // props value 변경없이 ThemeButton 컴포넌트에 전달
     return (
         <div>
             <ThemeButton />
@@ -18,7 +18,7 @@ function Toolbar() {
     )
 }
 
-function ThemeButton() {
+function ThemeButton() { // props value 변경없이 Button 컴포넌트에 전달
     return (
         <div>
             <Button />
@@ -27,7 +27,7 @@ function ThemeButton() {
 }
 
 function Button() {
-    const value = useContext(ThemeContext);
+    const value = useContext(ThemeContext); //컨텍스트 구독 요청. Provider의 'lavender' 매개변수를 가져옴
     return (
         <div
             style={{
